@@ -1,0 +1,14 @@
+server:
+  port: 8062
+
+spring:
+  profiles:
+    active: local
+  application:
+    name: dubbo-server-demo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

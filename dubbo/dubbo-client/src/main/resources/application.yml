@@ -1,0 +1,29 @@
+server:
+  port: 8061
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring:
+  application:
+    name: dubbo-client-demo
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+dubbo:
+  cloud:
+    subscribed-services: 'dubbo-server-demo'
+  protocol:
+    name: dubbo
+    port: -1
+  # 单注册中心
+  registry:
+    address: spring-cloud://localhost
+  consumer:
+    check: false
+    timeout: 10000

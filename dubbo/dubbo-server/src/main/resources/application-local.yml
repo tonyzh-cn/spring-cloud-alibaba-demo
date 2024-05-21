@@ -1,0 +1,11 @@
+dubbo:
+  cloud:
+    subscribed-services: ''
+  scan:
+    base-packages: com.example.demo.dubbo
+  protocol:
+    name: dubbo
+    port: -1
+  # 单注册中心
+  registry:
+    address: spring-cloud://localhost
