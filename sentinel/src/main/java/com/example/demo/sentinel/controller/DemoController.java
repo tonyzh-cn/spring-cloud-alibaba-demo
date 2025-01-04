@@ -2,6 +2,9 @@ package com.example.demo.sentinel.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.example.demo.api.CommonResult;
+import com.example.demo.api.User;
+import com.example.demo.sentinel.aop.Idempotent;
 import com.example.demo.sentinel.openfeign.DemoFeignApi;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,8 +53,12 @@ public class DemoController {
 
     @RequestMapping("/feign")
     @ResponseBody
-    public String feign() {
-        return "调用feign接口成功";
+    @Idempotent
+    public CommonResult feign() {
+        User user=new User();
+        user.setId(2L);
+        user.setName("lisi");
+        return CommonResult.success(user);
     }
 
     @RequestMapping("/error")

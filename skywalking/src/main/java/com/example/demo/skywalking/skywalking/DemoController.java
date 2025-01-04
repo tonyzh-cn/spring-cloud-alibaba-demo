@@ -1,5 +1,8 @@
 package com.example.demo.skywalking.skywalking;
 
+import com.alibaba.fastjson.JSON;
+import com.example.demo.api.CommonResult;
+import com.example.demo.api.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,8 +25,11 @@ public class DemoController {
 
     @RequestMapping("/echo")
     @ResponseBody
-    public String echo() {
-        return demoFeignApi.feign();
+    public CommonResult echo() {
+        CommonResult result = demoFeignApi.feign();
+
+        User user = JSON.parseObject(result.getData().toString(), User.class);
+        return result;
     }
 
     @RequestMapping("/error")

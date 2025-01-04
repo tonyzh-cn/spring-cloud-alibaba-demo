@@ -1,5 +1,6 @@
 package com.example.demo.skywalking.skywalking;
 
+import com.example.demo.api.CommonResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,5 +14,5 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public interface DemoFeignApi {
     @RequestMapping(value = "/feign", method = RequestMethod.POST)
     @ResponseBody
-    public String feign();
+    public CommonResult feign();
 }

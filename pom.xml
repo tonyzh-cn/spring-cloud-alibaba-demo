@@ -23,6 +23,7 @@
         <module>sentinel</module>
         <module>skywalking</module>
         <module>dubbo</module>
+        <module>api</module>
     </modules>
 
     <dependencyManagement>
