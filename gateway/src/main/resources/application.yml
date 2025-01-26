@@ -11,7 +11,7 @@ spring:
         # 前端接口
         - id: http-service
           order: 1
-          uri: http://localhost:8081
+          uri: https://www.baidu.com
           predicates:
             - Path=/mall/**
           filters:
